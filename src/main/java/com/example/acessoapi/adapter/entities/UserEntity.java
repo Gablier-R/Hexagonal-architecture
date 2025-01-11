@@ -16,6 +16,9 @@ public class UserEntity {
     private String password;
     private Boolean admin;
 
+    public UserEntity() {
+    }
+
     public UserEntity(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;

@@ -1,19 +1,26 @@
 package com.example.acessoapi.domain.services;
 
 import com.example.acessoapi.domain.entities.UserDomain;
-import com.example.acessoapi.domain.ports.in.UserServicePort;
-import com.example.acessoapi.domain.ports.out.UserRepositoryPort;
+import com.example.acessoapi.domain.ports.in.UserServicePortIN;
+import com.example.acessoapi.domain.ports.out.UserRepositoryPortOUT;
 
-public class UserService implements UserServicePort {
+import java.util.List;
 
-    private final UserRepositoryPort repository;
+public class UserService implements UserServicePortIN {
 
-    public UserService(UserRepositoryPort userRepositoryPort) {
-        this.repository = userRepositoryPort;
+    private final UserRepositoryPortOUT repository;
+
+    public UserService(UserRepositoryPortOUT userRepositoryPortOUT) {
+        this.repository = userRepositoryPortOUT;
     }
 
     @Override
     public UserDomain createUser(UserDomain userDomain) {
         return repository.create(userDomain);
+    }
+
+    @Override
+    public List<UserDomain> getUsers() {
+        return repository.getAllUsers();
     }
 }
