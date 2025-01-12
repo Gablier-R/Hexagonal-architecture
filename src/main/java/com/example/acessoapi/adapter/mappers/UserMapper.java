@@ -28,8 +28,7 @@ public class UserMapper {
     }
 
     public UserEntity toEntity (UserDomain userDomain){
-        return new UserEntity.Builder()
-                .id(userDomain.getId())
+        return UserEntity.builder()
                 .name(userDomain.getName())
                 .email(userDomain.getEmail())
                 .password(userDomain.getPassword())

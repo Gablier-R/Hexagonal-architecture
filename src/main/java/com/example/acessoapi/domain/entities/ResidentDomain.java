@@ -6,8 +6,8 @@ public class ResidentDomain extends Person{
     private String adress;
     private String phone;
 
-    private ResidentDomain (ResidentDomainBuilder builder){
-        super(builder.name);
+    private ResidentDomain (Builder builder){
+        super(builder.id, builder.name);
         this.cpf = builder.cpf;
         this.adress = builder.adress;
         this.phone = builder.phone;
@@ -37,29 +37,35 @@ public class ResidentDomain extends Person{
         this.phone = phone;
     }
 
-    public static class ResidentDomainBuilder{
+    public static class Builder{
 
+        private Long id;
         private String name;
         private String cpf;
         private String adress;
         private String phone;
 
-        public ResidentDomainBuilder name(String name){
+        public Builder id (Long id){
+            this.id = id;
+            return this;
+        }
+
+        public Builder name(String name){
             this.name = name;
             return this;
         }
 
-        public ResidentDomainBuilder cpf(String cpf){
+        public Builder cpf(String cpf){
             this.cpf = cpf;
             return this;
         }
 
-        public ResidentDomainBuilder adress(String adress){
+        public Builder adress(String adress){
             this.adress = adress;
             return this;
         }
 
-        public ResidentDomainBuilder phone(String phone){
+        public Builder phone(String phone){
             this.phone = phone;
             return this;
         }

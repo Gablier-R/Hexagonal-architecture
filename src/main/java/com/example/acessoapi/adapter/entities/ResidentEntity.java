@@ -1,6 +1,5 @@
 package com.example.acessoapi.adapter.entities;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,15 +11,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "tb_user")
-public class UserEntity {
+@Entity(name = "tb_resident")
+public class ResidentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String email;
-    private String password;
-    private Boolean admin;
-
+    private String cpf;
+    private String adress;
+    private String phone;
 }
